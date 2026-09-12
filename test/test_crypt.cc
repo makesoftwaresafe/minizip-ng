@@ -368,6 +368,7 @@ TEST(crypt, aes256) {
     EXPECT_STREQ((char *)buf, test);
 }
 
+#  ifdef HAVE_WZAES
 /* NIST SP 800-38A F.5.1 CTR-AES128.Encrypt */
 static const uint8_t ctr_key[] = {0x2b, 0x7e, 0x15, 0x16, 0x28, 0xae, 0xd2, 0xa6,
                                   0xab, 0xf7, 0x15, 0x88, 0x09, 0xcf, 0x4f, 0x3c};
@@ -488,6 +489,7 @@ TEST(crypt, aes128_ctr_le8) {
 
     EXPECT_THAT(expected, ::testing::ElementsAreArray(buf, sizeof(buf)));
 }
+#  endif
 
 TEST(crypt, hmac_sha1) {
     void *hmac;

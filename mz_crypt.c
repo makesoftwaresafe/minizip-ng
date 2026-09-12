@@ -181,7 +181,7 @@ pbkdf2_cleanup:
 
 /***************************************************************************/
 
-#if !defined(MZ_ZIP_NO_CRYPTO)
+#if defined(HAVE_WZAES)
 /* Counter blocks generated per cipher call, enough to keep the AES pipeline busy */
 #  define MZ_AES_CTR_BATCH (8)
 
